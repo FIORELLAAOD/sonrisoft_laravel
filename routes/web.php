@@ -13,7 +13,6 @@ use App\Models\Estaciones;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return redirect()->route('home');
 });
@@ -59,7 +58,8 @@ Route::resource('configs',App\Http\Controllers\ConfigController::class);
 
 
 
-Route::get('/rptpacientes',[App\Http\Controllers\ReporteController::class, 'pacientes'])->name('rpt.pacientes');
+
+Route::get('/rptpacientes',[App\Http\Controllers\ReporteController::class, 'pacientes'])->name('rpt.pacientes.lista');
 Route::get('/rptpacientestodo/{datos}',[App\Http\Controllers\ReporteController::class, 'pacientestodo'])->name('rpt.pacientestodo');
 Route::get('/rptpacienteindiv/{datos}',[App\Http\Controllers\ReporteController::class, 'rptpacienteindiv'])->name('rpt.rptpacienteindiv');
 Route::get('/rptcitas',[App\Http\Controllers\ReporteController::class, 'rptcitas'])->name('rpt.rptcitas');
@@ -75,7 +75,7 @@ Route::get('/validarregistro',[App\Http\Controllers\AjaxController::class, 'vali
 Route::get('/rpt_odontograma',[App\Http\Controllers\ReporteController::class, 'rpt_odontograma'])->name('rpt.odontograma');
 
 Route::get('/rpt_medicos',[App\Http\Controllers\ReporteController::class, 'rpt_medicos'])->name('rpt.medicos');
-Route::get('/rpt_pacientes',[App\Http\Controllers\ReporteController::class, 'rpt_pacientes'])->name('rpt.pacientes');
+Route::get('/rpt_pacientes',[App\Http\Controllers\ReporteController::class, 'rpt_pacientes'])->name('rpt.pacientes.reporte');
 
 
 Route::get('/odontograma',[App\Http\Controllers\OdontogramaController::class, 'index'])->name('odontograma');

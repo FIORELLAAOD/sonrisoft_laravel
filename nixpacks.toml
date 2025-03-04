@@ -10,11 +10,10 @@ cmds = [
 [phases.build]
 cmds = [
     "npm install --production",
-    "npm run prod || npm run build || npm run production || echo 'No se encontró un comando de producción para npm'",
+    "php artisan config:clear",
+    "php artisan cache:clear",
     "php artisan optimize",
-    "php artisan config:cache",
-    "php artisan route:cache",  # Descomentado para caché de rutas
-    "php artisan view:cache",
+    "php artisan key:generate",
     "php artisan migrate:fresh --force || echo 'No se pudieron ejecutar las migraciones'"
 ]
 

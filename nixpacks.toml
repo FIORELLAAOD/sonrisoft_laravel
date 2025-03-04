@@ -1,0 +1,21 @@
+[phases.setup]
+nixPkgs = ["php81", "php81Packages.composer", "nodejs-18_x", "yarn"]
+
+[phases.install]
+cmds = [
+    "composer install --no-dev --optimize-autoloader",
+    "php artisan package:discover"
+]
+
+[phases.build]
+cmds = [
+    "yarn install",
+    "yarn prod || yarn build || yarn production || echo 'No se encontró un comando de producción para yarn'",
+    "php artisan config:cache",
+    "php artisan route:cache",
+    "php artisan view:cache",
+    "php artisan migrate --force || echo 'No se pudieron ejecutar las migraciones'"
+]
+
+[start]
+cmd = "php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"

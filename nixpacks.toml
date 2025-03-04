@@ -13,8 +13,7 @@ cmds = [
     "npm run prod || npm run build || npm run production || echo 'No se encontró un comando de producción para npm'",
     "php artisan optimize",
     "php artisan config:cache",
-    # Saltamos el cacheo de rutas para evitar el error temporal
-    # "php artisan route:cache",
+    "php artisan route:cache",  # Descomentado para caché de rutas
     "php artisan view:cache",
     "php artisan migrate --force || echo 'No se pudieron ejecutar las migraciones'"
 ]
